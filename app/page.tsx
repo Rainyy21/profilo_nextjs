@@ -52,8 +52,8 @@ export default function Home() {
       <Window title="Home" variant="default">
         <div className="p-6">
           <div className="flex flex-col items-center gap-8">
-            <h1 className="text-gray-600 text-5xl">Hi! I'm {profileData.name}</h1>
-            <p className="text-xl">{profileData.title}</p>
+            <h1 className="text-[var(--secondaryText)] text-4xl sm:text-5xl font-extrabold tracking-tight">Hi! I'm {profileData.name}</h1>
+            <p className="text-lg sm:text-xl font-medium text-[var(--foreground)] opacity-90">{profileData.title}</p>
             <div className="flex gap-6 justify-center">
               <button onClick={() => togglePopup("profilo")} className="base-button btn-primary">
                 <Image src={icon} alt={"personal info"} width={40} height={40}></Image>

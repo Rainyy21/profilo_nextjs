@@ -46,7 +46,7 @@ function drawCloud(ctx: CanvasRenderingContext2D, cloud: Cloud) {
     ctx.moveTo(p.dx + p.r, p.dy);
     ctx.arc(p.dx, p.dy, p.r, 0, Math.PI * 2);
   }
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "#FFFDF9";
   ctx.fill();
 
   ctx.restore();
@@ -81,12 +81,13 @@ export default function CloudBackground({ count = 8 }: CloudBackgroundProps) {
       const dt = Math.min(ts - lastTime, 100);
       lastTime = ts;
 
-      // Sky gradient
+      // Sky gradient (Blue & Cream palette)
       const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-      grad.addColorStop(0, "#73C2FB"); // Maya Blue
-      grad.addColorStop(0.4, "#A1E3D8"); // Fresh Mint
-      grad.addColorStop(0.7, "#FFD1DC"); // Soft Pink
-      grad.addColorStop(1, "#FFE0D8"); // Warm Peach
+      grad.addColorStop(0, "#1D4ED8");    // Royal Blue
+      grad.addColorStop(0.35, "#3B82F6"); // Sky Blue
+      grad.addColorStop(0.65, "#93C5FD"); // Ice Blue
+      grad.addColorStop(0.85, "#F5EFE6"); // Soft Sand Cream
+      grad.addColorStop(1, "#FFFDF9");    // Warm Ivory Cream
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 

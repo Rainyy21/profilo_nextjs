@@ -1,5 +1,7 @@
 .window {
   background: var(--mainText);
+  backdrop-filter: blur(var(--glassBlur, 0px));
+  -webkit-backdrop-filter: blur(var(--glassBlur, 0px));
   width: 60vw;
   height: 70vh;
   min-width: min(440px, 92vw);
@@ -8,10 +10,11 @@
   max-height: 85vh;
   display: flex;
   flex-direction: column;
-  border: 4px solid var(--foreground);
-  box-shadow: 12px 12px 0px 0px var(--secondaryText);
+  border: 3px solid var(--borderColor);
+  box-shadow: 10px 10px 0px 0px var(--shadowColor), 0 0 30px var(--glowColor);
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 16px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 .window-popup {
@@ -21,30 +24,54 @@
   min-height: min(280px, 75vh);
   max-width: 60vw;
   max-height: 70vh;
+  box-shadow: 12px 12px 0px 0px var(--shadowColor), 0 0 35px var(--glowColor), 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
 .title {
-  padding: 10px 20px;
+  padding: 14px 22px;
   background: var(--background);
-  border-bottom: 4px solid var(--foreground);
+  color: var(--titleText);
+  border-bottom: 3px solid var(--borderColor);
   display: flex;
   align-items: center;
+  user-select: none;
+  backdrop-filter: blur(var(--glassBlur, 0px));
+  -webkit-backdrop-filter: blur(var(--glassBlur, 0px));
 }
 
 .title h1 {
   margin: 0;
-  padding: 10px;
-  font-size: 1.5rem;
-  font-weight: bold;
+  padding: 0 4px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--titleText);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .mainContent {
   flex-grow: 1;
   overflow-y: auto;
-  padding: 20px;
+  padding: 24px;
   color: var(--foreground);
 }
 
-.window-profilo { border-color: var(--secondaryColor); }
-.window-project { border-color: var(--secondaryText); }
-.window-link { border-color: var(--background); }
+.mainContent::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mainContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mainContent::-webkit-scrollbar-thumb {
+  background: var(--secondaryColor);
+  border-radius: 4px;
+  border: 1px solid var(--borderColor);
+}
+
+.window-profilo { border-color: var(--borderColor); }
+.window-project { border-color: var(--borderColor); }
+.window-link { border-color: var(--borderColor); }
+
+

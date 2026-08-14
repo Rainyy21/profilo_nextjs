@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import StarryBackground from "./StarryBackground";
 import CloudBackground from "./CloudBackground";
+
 const darkModeIcon = "/srcAndImg/dark_mode_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40(1).svg";
 const lightModeIcon = "/srcAndImg/light_mode_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
 
@@ -17,7 +18,6 @@ export default function Darkmode({ children }: DarkmodeProps) {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "light";
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(savedTheme);
     setMounted(true);
   }, []);
@@ -33,18 +33,19 @@ export default function Darkmode({ children }: DarkmodeProps) {
     }
   }, [mounted, theme]);
 
-  // Prevent hydration mismatch by not rendering until mounted
   if (!mounted) {
     return <div style={{ visibility: "hidden" }}>{children}</div>;
   }
 
+  const isDark = theme === "dark";
+
   return (
     <div className="min-h-screen">
-      {theme === "dark" ? <StarryBackground /> : <CloudBackground />}
+      {isDark ? <StarryBackground /> : <CloudBackground />}
       <div className="fixed top-4 right-4 z-50">
         <button
           onClick={toggleTheme}
-          className="p-2 transition-opacity hover:opacity-80"
+          className="p-2 transition-opacity hover:opacity-80 cursor-pointer"
           aria-label={theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
         >
           <Image
@@ -60,3 +61,4 @@ export default function Darkmode({ children }: DarkmodeProps) {
     </div>
   );
 }
+

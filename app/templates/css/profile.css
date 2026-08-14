@@ -1,27 +1,28 @@
 .profileContainer {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .profileHeader {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
 }
 
 .profileAvatarContainer {
-  width: 80px;
-  height: 80px;
+  width: 84px;
+  height: 84px;
   border-radius: 50%;
-  border: 4px solid var(--foreground);
-  box-shadow: 4px 4px 0px 0px var(--secondaryText);
+  border: 3px solid var(--borderColor);
+  box-shadow: 4px 4px 0px 0px var(--shadowColor), 0 0 15px var(--glowColor);
   overflow: hidden;
   background: var(--secondaryColor);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .profileAvatarImage {
@@ -46,40 +47,68 @@
 }
 
 .profileName {
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-weight: 800;
   color: var(--secondaryText);
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 20px var(--glowColor);
 }
 
 .profileTitleText {
   font-size: 1.1rem;
   font-weight: 600;
-  opacity: 0.85;
+  color: var(--foreground);
+  opacity: 0.9;
 }
 
 .profileBio {
-  line-height: 1.6;
-  font-size: 1rem;
+  line-height: 1.65;
+  font-size: 1.05rem;
+  color: var(--foreground);
+}
+
+.profileEducation {
+  padding: 14px 18px;
+  background: var(--iceBlue);
+  border-left: 4px solid var(--secondaryColor);
+  border-radius: 8px;
+  border-top: 1px solid var(--borderColor);
+  border-right: 1px solid var(--borderColor);
+  border-bottom: 1px solid var(--borderColor);
+  backdrop-filter: blur(var(--glassBlur, 0px));
+  box-shadow: 0 4px 12px var(--glowColor);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .profileSectionTitle {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--foreground);
+  margin-bottom: 10px;
+  color: var(--secondaryText);
 }
 
 .profileSkills {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .profileSkill {
-  background: var(--secondaryColor);
+  background: var(--iceBlue);
+  color: var(--badgeText);
   padding: 6px 14px;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  border: 2px solid var(--foreground);
+  border: 2px solid var(--borderColor);
+  box-shadow: 2px 2px 0px 0px var(--shadowColor);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+  backdrop-filter: blur(var(--glassBlur, 0px));
 }
+
+.profileSkill:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0px 0px var(--shadowColor), 0 0 12px var(--glowColor);
+}
+
+

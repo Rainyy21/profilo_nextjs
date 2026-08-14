@@ -1,29 +1,31 @@
 .base-button {
-  padding: 1rem 1.5rem;
-  color: white;
+  padding: 0.85rem 1.4rem;
+  color: var(--titleText);
   border-radius: 0.75rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-weight: 500;
+  box-shadow: 4px 4px 0px 0px var(--shadowColor);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  border: none;
+  gap: 0.5rem;
+  border: 2px solid var(--borderColor);
   cursor: pointer;
-  min-width: 100px;
+  min-width: 105px;
   text-decoration: none;
+  backdrop-filter: blur(var(--glassBlur, 0px));
 }
 
 .base-button:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  filter: brightness(0.9);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 6px 6px 0px 0px var(--shadowColor), 0 0 20px var(--glowColor);
+  filter: brightness(1.12);
 }
 
 .base-button:active {
-  transform: translateY(0);
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 2px 2px 0px 0px var(--shadowColor);
 }
 
 .base-button.btn-icon {
@@ -33,6 +35,14 @@
 }
 
 /* Color Variants */
-.btn-primary { background-color: var(--secondaryColor); }
+.btn-primary { 
+  background-color: var(--secondaryColor); 
+  color: var(--titleText);
+}
 
-.btn-gray { background-color: #6b7280; }
+.btn-gray { 
+  background-color: #475569; 
+  color: #F8FAFC;
+}
+
+

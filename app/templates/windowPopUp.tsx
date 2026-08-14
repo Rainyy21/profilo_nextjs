@@ -49,9 +49,9 @@ export default function WindowPopUp({
         <button
           onClick={onClose}
           aria-label="Close"
-          className="hover:text-red-500 transition-colors p-1 text-xl font-bold cursor-pointer"
+          className="hover:bg-red-500/80 hover:text-white transition-all rounded-md px-2 py-0.5 text-lg font-bold cursor-pointer text-[var(--titleText)] opacity-85 hover:opacity-100"
         >
-          ✖
+          ✕
         </button>
       </div>
       <div className="mainContent">

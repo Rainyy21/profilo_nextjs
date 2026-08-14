@@ -7,35 +7,66 @@
 
 :root,
 [data-theme='light'] {
-  --background: #8ECDE2;
-  --foreground: #171717;
-  --secondaryColor: #8FD7C7;
-  --mainText:#FFE0D8;
-  --secondaryText: #FC92C4;
-  --temp:#FFE0D8;
+  --background: #1E40AF;       /* Deep Royal Blue for header bars */
+  --foreground: #0F172A;       /* Slate 900 Navy text for high contrast on cream */
+  --mainText: #FFFDF9;         /* Warm Ivory Cream window background */
+  --secondaryColor: #2563EB;   /* Vibrant Royal Blue for primary buttons & cards */
+  --secondaryText: #1E3A8A;    /* Navy Blue for titles & window box shadow */
+  --creamAccent: #F5EFE6;      /* Soft sand cream accent */
+  --skyBlue: #3B82F6;          /* Bright sky blue accent */
+  --iceBlue: #E0F2FE;          /* Soft ice blue tint for badges */
+  --badgeText: #1E40AF;        /* Text inside light badges */
+  --titleText: #FFFDF9;        /* Text inside title bar (Cream on Blue) */
+  --borderColor: #0F172A;      /* Border color */
+  --shadowColor: #1E3A8A;      /* Box shadow offset color */
+  --glowColor: rgba(30, 58, 138, 0.15);
+  --glassBlur: 0px;
 }
 
 [data-theme='dark'] {
-  --background: #0F1931;
-  --foreground: #ededed;
-  --secondaryColor:#001A47;
-  --mainText: #E2D4BB;
-  --secondaryText:#C89768;
-  --temp:#594435;
+  --background: rgba(15, 23, 42, 0.98);       /* Deep Sapphire Midnight for header bars */
+  --foreground: #F8FAFC;                       /* Warm Slate Cream text for high contrast */
+  --mainText: rgba(15, 23, 42, 0.96);          /* High-opacity Midnight Navy window background */
+  --secondaryColor: #2563EB;                   /* Vibrant Royal Blue for primary buttons */
+  --secondaryText: #60A5FA;                    /* Glowing Sky Blue accent for titles & highlights */
+  --creamAccent: rgba(30, 41, 59, 0.92);       /* Dark slate cream accent */
+  --skyBlue: #38BDF8;                          /* Bright cyan blue accent */
+  --iceBlue: rgba(30, 58, 138, 0.85);          /* Deep navy ice blue for badges */
+  --badgeText: #E0F2FE;                        /* Text inside dark badges */
+  --titleText: #F8FAFC;                        /* Text inside title bar */
+  --borderColor: rgba(96, 165, 250, 0.5);      /* Electric blue border in dark mode */
+  --shadowColor: rgba(37, 99, 235, 0.6);       /* Box shadow offset color */
+  --glowColor: rgba(59, 130, 246, 0.4);        /* Ambient outer glow color */
+  --glassBlur: 16px;                           /* Glassmorphism blur strength */
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --background: #0F1931;
-    --foreground: #ededed;
-    --secondaryColor:#001A47;
-    --mainText: #E2D4BB;
-    --secondaryText:#C89768;
-    --temp:#594435;
+    --background: rgba(15, 23, 42, 0.98);
+    --foreground: #F8FAFC;
+    --mainText: rgba(15, 23, 42, 0.96);
+    --secondaryColor: #2563EB;
+    --secondaryText: #60A5FA;
+    --creamAccent: rgba(30, 41, 59, 0.92);
+    --skyBlue: #38BDF8;
+    --iceBlue: rgba(30, 58, 138, 0.85);
+    --badgeText: #E0F2FE;
+    --titleText: #F8FAFC;
+    --borderColor: rgba(96, 165, 250, 0.5);
+    --shadowColor: rgba(37, 99, 235, 0.6);
+    --glowColor: rgba(59, 130, 246, 0.4);
+    --glassBlur: 16px;
   }
 }
 
 body {
-  background: var(--background);
+  background: transparent;
   color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  transition: color 0.3s ease;
 }
+
+
